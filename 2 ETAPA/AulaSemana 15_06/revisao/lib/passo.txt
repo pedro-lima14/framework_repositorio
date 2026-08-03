@@ -1,0 +1,691 @@
+bloco 01
+
+class TelaDetalhes extends StatelessWidget {
+  const TelaDetalhes({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Animação'),
+      ),
+
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(20),
+            child: Column(
+              children: [
+                const Icon(
+                  Icons.school,
+                  size: 80,
+                  color: Colors.blue,
+                ),
+
+                const SizedBox(height: 20),
+
+                const Text(
+                  'Animação implícita e explícita',
+                  style: TextStyle(
+                    fontSize: 26,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+
+                const SizedBox(height: 10),
+
+                const Text(
+                  'Escolha um tipo de animação.',
+                  textAlign: TextAlign.center,
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
+bloco 2
+
+const SizedBox(height: 30),
+
+ElevatedButton.icon(
+  onPressed: () {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) {
+          return const TelaAnimatedContainer();
+        },
+      ),
+    );
+  },
+  icon: const Icon(Icons.animation),
+  label: const Text('AnimatedContainer'),
+),
+
+
+bloco 03
+
+class TelaAnimatedContainer extends StatefulWidget {
+  const TelaAnimatedContainer({super.key});
+
+  @override
+  State<TelaAnimatedContainer> createState() {
+    return _TelaAnimatedContainerState();
+  }
+}
+
+class _TelaAnimatedContainerState extends State<TelaAnimatedContainer> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('AnimatedContainer'),
+      ),
+
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
+bloco 4
+
+class _TelaAnimatedContainerState extends State<TelaAnimatedContainer> {
+  bool expandido = false;
+
+  @override
+  Widget build(BuildContext context) {
+
+
+bloco 05
+
+
+const Text(
+  'AnimatedContainer',
+  style: TextStyle(
+    fontSize: 26,
+    fontWeight: FontWeight.bold,
+  ),
+  textAlign: TextAlign.center,
+),
+
+const SizedBox(height: 10),
+
+const Text(
+  'Clique no card para animar tamanho, cor e borda.',
+  textAlign: TextAlign.center,
+),
+
+bloco 06
+
+const SizedBox(height: 30),
+
+AnimatedContainer(
+  duration: const Duration(seconds: 1),
+  width: expandido ? 300 : 130,
+  height: expandido ? 300 : 130,
+  decoration: BoxDecoration(
+    color: expandido ? Colors.blue : Colors.orange,
+    borderRadius: BorderRadius.circular(
+      expandido ? 30 : 10,
+    ),
+  ),
+),
+
+bloco 07
+
+GestureDetector(
+  onTap: () {
+    setState(() {
+      expandido = !expandido;
+    });
+  },
+  child: AnimatedContainer(
+    duration: const Duration(seconds: 1),
+    width: expandido ? 300 : 130,
+    height: expandido ? 300 : 130,
+    decoration: BoxDecoration(
+      color: expandido ? Colors.blue : Colors.orange,
+      borderRadius: BorderRadius.circular(
+        expandido ? 30 : 10,
+      ),
+    ),
+  ),
+),
+
+
+bloco 08
+
+child: Center(
+  child: Column(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+      Icon(
+        expandido ? Icons.check_circle : Icons.touch_app,
+        color: Colors.white,
+        size: 40,
+      ),
+
+      const SizedBox(height: 10),
+
+      const Text(
+        'Clique',
+        style: TextStyle(
+          color: Colors.white,
+          fontSize: 22,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+    ],
+  ),
+),
+
+bloco 09
+
+
+const SizedBox(height: 10),
+
+if (expandido)
+  const Text(
+    'O card aumentou, mudou de cor e arredondou as bordas.',
+    textAlign: TextAlign.center,
+    style: TextStyle(
+      color: Colors.white,
+    ),
+  ),
+
+bloco 10
+
+
+const SizedBox(height: 30),
+
+ElevatedButton.icon(
+  onPressed: () {
+    Navigator.pop(context);
+  },
+  icon: const Icon(Icons.arrow_back),
+  label: const Text('Voltar'),
+),
+
+bloco 11
+
+
+const SizedBox(height: 10),
+
+ElevatedButton.icon(
+  onPressed: () {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) {
+          return const TelaAnimatedOpacity();
+        },
+      ),
+    );
+  },
+  icon: const Icon(Icons.visibility),
+  label: const Text('AnimatedOpacity'),
+),
+
+
+bloco 12
+
+class TelaAnimatedOpacity extends StatefulWidget {
+  const TelaAnimatedOpacity({super.key});
+
+  @override
+  State<TelaAnimatedOpacity> createState() {
+    return _TelaAnimatedOpacityState();
+  }
+}
+
+class _TelaAnimatedOpacityState extends State<TelaAnimatedOpacity> {
+  bool visivel = true;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('AnimatedOpacity'),
+      ),
+
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Icon(
+                Icons.visibility,
+                size: 80,
+                color: Colors.blue,
+              ),
+
+              const SizedBox(height: 20),
+
+              const Text(
+                'AnimatedOpacity',
+                style: TextStyle(
+                  fontSize: 26,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+
+              const SizedBox(height: 10),
+
+              const Text(
+                'Esse widget faz algo aparecer ou desaparecer suavemente.',
+                textAlign: TextAlign.center,
+              ),
+
+              const SizedBox(height: 30),
+
+              AnimatedOpacity(
+                opacity: visivel ? 1.0 : 0.0,
+                duration: const Duration(seconds: 1),
+                child: Container(
+                  width: 260,
+                  padding: const EdgeInsets.all(20),
+                  decoration: BoxDecoration(
+                    color: Colors.blue.shade100,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: const Text(
+                    'Este texto aparece e desaparece com animação.',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+
+              const SizedBox(height: 30),
+
+              ElevatedButton.icon(
+                onPressed: () {
+                  setState(() {
+                    visivel = !visivel;
+                  });
+                },
+                icon: const Icon(Icons.visibility),
+                label: const Text('Mostrar / Esconder'),
+              ),
+
+              const SizedBox(height: 20),
+
+              ElevatedButton.icon(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: const Icon(Icons.arrow_back),
+                label: const Text('Voltar'),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
+bloco 13
+
+
+const SizedBox(height: 10),
+ElevatedButton.icon(
+ onPressed: () {
+ Navigator.push(
+ context,
+ MaterialPageRoute(
+ builder: (context) {
+ return const TelaPageRoute();
+ },
+ ),
+ );
+ },
+ icon: const Icon(Icons.open_in_new),
+ label: const Text('PageRoute'),
+ ),
+bloco 14
+class TelaPageRoute extends StatelessWidget {
+ const TelaPageRoute({super.key});
+@override
+ Widget build(BuildContext context) {
+ return Scaffold(
+ appBar: AppBar(
+ title: const Text('PageRoute'),
+ ),
+  body: SafeArea(
+   child: Padding(
+     padding: const EdgeInsets.all(20),
+     child: Column(
+       mainAxisAlignment: MainAxisAlignment.center,
+       children: [],
+     ),
+   ),
+ ),
+);
+}
+ }
+bloco 15
+const Icon(
+ Icons.open_in_new,
+ size: 80,
+ color: Colors.purple,
+ ),
+const SizedBox(height: 20),
+const Text(
+ 'PageRouteBuilder',
+ style: TextStyle(
+ fontSize: 26,
+ fontWeight: FontWeight.bold,
+ ),
+ textAlign: TextAlign.center,
+ ),
+const SizedBox(height: 10),
+const Text(
+ 'Permite personalizar a animação de abertura de uma nova tela.',
+ textAlign: TextAlign.center,
+ ),
+bloco 16
+const SizedBox(height: 30),
+ElevatedButton(
+ onPressed: () {},
+ child: const Text('Abrir tela com animação'),
+ ),
+bloco 17
+class TelaDestinoPageRoute extends StatelessWidget {
+ const TelaDestinoPageRoute({super.key});
+@override
+ Widget build(BuildContext context) {
+ return Scaffold(
+ appBar: AppBar(
+ title: const Text('Tela com Transição'),
+ ),
+  body: const Center(
+   child: Text(
+     'Essa tela entrou com SlideTransition!',
+     style: TextStyle(
+       fontSize: 24,
+       fontWeight: FontWeight.bold,
+     ),
+     textAlign: TextAlign.center,
+   ),
+ ),
+);
+}
+ }
+bloco 18
+onPressed: () {
+ Navigator.push(
+ context,
+ PageRouteBuilder(
+ pageBuilder: (context, animation, secondaryAnimation) {
+ return const TelaDestinoPageRoute();
+ },
+ transitionsBuilder: (
+ context,
+ animation,
+ secondaryAnimation,
+ child,
+ ) {
+ return SlideTransition(
+ position: Tween<Offset>(
+ begin: const Offset(1, 0),
+ end: Offset.zero,
+ ).animate(animation),
+ child: child,
+ );
+ },
+ ),
+ );
+ },
+bloco 19
+const SizedBox(height: 20),
+ElevatedButton.icon(
+ onPressed: () {
+ Navigator.pop(context);
+ },
+ icon: const Icon(Icons.arrow_back),
+ label: const Text('Voltar'),
+ ),
+bloco 20
+const SizedBox(height: 10),
+ElevatedButton.icon(
+ onPressed: () {
+ Navigator.push(
+ context,
+ MaterialPageRoute(
+ builder: (context) {
+ return const TelaAnimationController();
+ },
+ ),
+ );
+ },
+ icon: const Icon(Icons.play_arrow),
+ label: const Text('AnimationController'),
+ ),
+bloco 21
+class TelaAnimationController extends StatefulWidget {
+ const TelaAnimationController({super.key});
+@override
+ State<TelaAnimationController> createState() {
+ return _TelaAnimationControllerState();
+ }
+ }
+class _TelaAnimationControllerState extends State<TelaAnimationController>
+ with SingleTickerProviderStateMixin {
+ @override
+ Widget build(BuildContext context) {
+ return Scaffold(
+ appBar: AppBar(
+ title: const Text('AnimationController'),
+ ),
+  body: SafeArea(
+   child: Center(
+     child: Column(
+       mainAxisAlignment: MainAxisAlignment.center,
+       children: [],
+     ),
+   ),
+ ),
+);
+}
+ }
+bloco 22
+late AnimationController controller;
+ late Animation<double> tamanho;
+bloco 23
+@override
+ void initState() {
+ super.initState();
+controller = AnimationController(
+ duration: const Duration(seconds: 1),
+ vsync: this,
+ );
+tamanho = Tween<double>(
+ begin: 100,
+ end: 250,
+ ).animate(controller);
+ }
+bloco 24
+@override
+ void dispose() {
+ controller.dispose();
+ super.dispose();
+ }
+bloco 25
+void iniciarAnimacao() {
+ controller.forward();
+ }
+void voltarAnimacao() {
+ controller.reverse();
+ }
+void reiniciarAnimacao() {
+ controller.forward(from: 0);
+ }
+bloco 26
+AnimatedBuilder(
+ animation: tamanho,
+ builder: (context, child) {
+ return Container(
+ width: tamanho.value,
+ height: tamanho.value,
+ decoration: BoxDecoration(
+ color: Colors.blue,
+ borderRadius: BorderRadius.circular(20),
+ ),
+ child: const Center(
+ child: Text(
+ 'Animação',
+ style: TextStyle(
+ color: Colors.white,
+ fontWeight: FontWeight.bold,
+ ),
+ ),
+ ),
+ );
+ },
+ ),
+bloco 27
+const SizedBox(height: 30),
+ElevatedButton(
+ onPressed: iniciarAnimacao,
+ child: const Text('Iniciar animação'),
+ ),
+const SizedBox(height: 10),
+ElevatedButton(
+ onPressed: voltarAnimacao,
+ child: const Text('Voltar animação'),
+ ),
+const SizedBox(height: 10),
+ElevatedButton(
+ onPressed: reiniciarAnimacao,
+ child: const Text('Reiniciar animação'),
+ ),
+bloco 28
+const SizedBox(height: 20),
+ElevatedButton.icon(
+ onPressed: () {
+ Navigator.pop(context);
+ },
+ icon: const Icon(Icons.arrow_back),
+ label: const Text('Voltar'),
+ ),
+bloco 29
+const SizedBox(height: 10),
+ElevatedButton.icon(
+ onPressed: () {
+ Navigator.push(
+ context,
+ MaterialPageRoute(
+ builder: (context) {
+ return const TelaTween();
+ },
+ ),
+ );
+ },
+ icon: const Icon(Icons.timeline),
+ label: const Text('Tween'),
+ ),
+bloco 30
+class TelaTween extends StatefulWidget {
+ const TelaTween({super.key});
+@override
+ State<TelaTween> createState() => _TelaTweenState();
+ }
+class _TelaTweenState extends State<TelaTween> {
+ double tamanhoFinal = 120;
+@override
+ Widget build(BuildContext context) {
+ return Scaffold(
+ appBar: AppBar(
+ title: const Text('Tween'),
+ ),
+  body: SafeArea(
+   child: Center(
+     child: Column(
+       mainAxisAlignment: MainAxisAlignment.center,
+       children: [],
+     ),
+   ),
+ ),
+);
+}
+ }
+bloco 31
+void alterarTamanho() {
+ setState(() {
+ tamanhoFinal = tamanhoFinal == 120 ? 260 : 120;
+ });
+ }
+bloco 32
+TweenAnimationBuilder<double>(
+ tween: Tween<double>(
+ begin: 120,
+ end: tamanhoFinal,
+ ),
+ duration: const Duration(seconds: 1),
+ builder: (context, valor, child) {
+ return Container(
+ width: valor,
+ height: valor,
+ decoration: BoxDecoration(
+ color: Colors.orange,
+ borderRadius: BorderRadius.circular(20),
+ ),
+ child: const Center(
+ child: Text(
+ 'Tween',
+ style: TextStyle(
+ color: Colors.white,
+ fontWeight: FontWeight.bold,
+ fontSize: 22,
+ ),
+ ),
+ ),
+ );
+ },
+ ),
+bloco 33
+const SizedBox(height: 30),
+ElevatedButton(
+ onPressed: alterarTamanho,
+ child: const Text('Alterar tamanho com Tween'),
+ ),
+bloco 34
+const SizedBox(height: 20),
+const Padding(
+ padding: EdgeInsets.all(20),
+ child: Text(
+ 'Tween define um valor inicial e um valor final. O Flutter calcula os valores intermediários automaticamente.',
+ textAlign: TextAlign.center,
+ ),
+ ),
+bloco 35
+ElevatedButton.icon(
+ onPressed: () {
+ Navigator.pop(context);
+ },
+ icon: const Icon(Icons.arrow_back),
+ label: const Text('Voltar'),
+ ),
+Seu período de teste Premium terminou
+
